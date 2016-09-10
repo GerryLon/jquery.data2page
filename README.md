@@ -6,4 +6,8 @@
 有太多表单项的话, 就需要我们将数据和表单项对应起来, 这是一个繁琐的工作, 所以写这
 个插件来实现"自动填充数据".
 
+<<<<<<< HEAD
 GitHub Pages地址: [插件演示地址](https://butterfly5211314.github.io/jquery.data2page/ '插件地址').
+=======
+GitHub Pages地址: [插件演示地址](https://butterfly5211314.github.io/jquery.data2page/ '插件地址')
+>>>>>>> e3909ed42b518e90223710e36769e6788591b039

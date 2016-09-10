@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jquery.data2page.js测试</title>
+    <style>
+    body {
+        padding-left: 50px;
+    }
+    
+    div {
+        padding-top: 1em;
+    }
+    </style>
+</head>
+
+<body>
+    <hr><span>测试data2Page start</span>
+    <hr>
+    <form id="data2PageForm" action="/home/index" method="post">
+        <input type="hidden" value="隐藏信息" name="hidden" />
+        <div>
+            <label for="account">账号:
+                <input type="text" maxlength="8" name="account" id="account" />
+            </label>
+        </div>
+        <div>
+            <label for="">密码：
+                <input type="password" name="password" />
+            </label>
+        </div>
+        <div>
+            姓名：
+            <input type="text" name="name" value="john" />
+        </div>
+        <div>
+            性别:
+            <input type="radio" name="gender" value="male" />男
+            <input type="radio" name="gender" value="female" />女
+        </div>
+        <div>
+            喜欢的运动
+            <input type="checkbox" name="sports" value="a" />basketball
+            <input type="checkbox" name="sports" value="b" />football
+            <input type="checkbox" name="sports" value="c" />swimming
+        </div>
+        <div>
+            年龄：
+            <select name="age">
+                <option value="0">0-30</option>
+                <option value="1">31-60</option>
+                <option value="2">60-100</option>
+            </select>
+        </div>
+        <div>
+            喜欢的花:
+            <select name="flower" multiple size="5">
+                <option value="0">玫瑰花</option>
+                <option value="1">百合花</option>
+                <option value="2">仙人掌</option>
+                <option value="3">郁金香</option>
+                <option value="4">万寿菊</option>
+            </select>
+        </div>
+        <div>
+            <label for="desc">描述</label>
+            <textarea style="vertical-align: middle;" id="desc" name="desc" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            上传照片：
+            <input type="file" accept="image/*" />
+        </div>
+        <div>
+            <input type="submit" value="提交" /> &nbsp;&nbsp;
+            <input type="reset" value="重置" />
+        </div>
+    </form>
+    <hr><span>测试data2Page end</span>
+    <hr>
+    <script src="jquery-2.2.4.js"></script>
+    <script src="jquery.data2page.js"></script>
+    <!-- <script src="commonUtils.js"></script> -->
+    <script>
+    var userInfo = {
+
+        hidden: 'foidwrd4iy',
+        account: 12345,
+        password: 'admin',
+        name: 'wanjl',
+        gender: 'female', // 这也很有可以要配置, 比如1 -> 男, 2 -> 女
+        sports: 'a-b-c',
+        age: '1',
+        flower: "1,2,3,4",
+        desc: 'ipanel'
+
+    };
+
+    $(function() {
+
+        $('form').data2page(userInfo, {
+            shim: [{
+                sports: {
+                    separator: '-'
+                }
+            }, {
+                flower: {
+                    separator: ','
+                }
+            }]
+        }).css('color', 'red').css('background-color', '#ccc').on('submit', function(e) {
+            e.preventDefault();
+
+            alert(this.actions);
+        });
+
+    });
+    </script>
+</body>
+
+</html>

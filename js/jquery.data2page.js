@@ -3,17 +3,8 @@
  * @author wanjl
  * @date 2016/09/10
  *
- * yangpc(杨鹏程) 09-12 19:02:50
-    可以支持一下CMD规范
-    yangpc(杨鹏程) 09-12 19:05:53
-    图片数据没有支持
-    wanjl(万继龙) 09-12 19:06:33
-    图片没有, 对的
-    wanjl(万继龙) 09-12 19:06:41
-    加上吧, 虽然不太用
  */
-;
-(function(factory) {
+;(function(factory) {
     if (typeof define === 'function' && define.amd) {
 
         define(['jquery'], factory);

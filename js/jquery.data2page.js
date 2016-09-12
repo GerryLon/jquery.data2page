@@ -4,7 +4,16 @@
  * @date 2016/09/10
  */
 ;
-(function(window, $, undefined) {
+(function(factory) {
+    if (typeof define === 'function' && define.amd) {
+
+        define(['jquery'], factory);
+
+    } else {
+
+        factory(jQuery);
+    }
+}(function($) {
 
     var defaultOptions = {
 
@@ -105,7 +114,7 @@
             return this.each(function(_, form) {
 
                 $.each(obj, function(key, val) {
-                    
+
                     nodeList = $(form).find(selectors[key]);
 
                     len = nodeList.length;
@@ -258,5 +267,4 @@
             });
         }
     });
-
-}(window, jQuery));
+}));

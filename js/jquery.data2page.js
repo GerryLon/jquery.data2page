@@ -2,6 +2,15 @@
  * 常用于将一个对象填充到表单中
  * @author wanjl
  * @date 2016/09/10
+ *
+ * yangpc(杨鹏程) 09-12 19:02:50
+    可以支持一下CMD规范
+    yangpc(杨鹏程) 09-12 19:05:53
+    图片数据没有支持
+    wanjl(万继龙) 09-12 19:06:33
+    图片没有, 对的
+    wanjl(万继龙) 09-12 19:06:41
+    加上吧, 虽然不太用
  */
 ;
 (function(window, $, undefined) {
@@ -185,6 +194,12 @@
                                                 });
                                             }
                                         });
+                                        break;
+
+                                    case 'image':
+                                        // <input type="image" src="/i/eg_submit.jpg" alt="Submit" />
+                                        // type=image只见过用于提交按钮的美化
+                                        node.src = val;
                                         break;
 
                                     default:

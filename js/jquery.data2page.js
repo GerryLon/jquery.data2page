@@ -4,7 +4,8 @@
  * @date 2016/09/10
  *
  */
-;(function(factory) {
+;
+(function(factory) {
     if (typeof define === 'function' && define.amd) {
 
         define(['jquery'], factory);
@@ -63,27 +64,9 @@
             var selectors = options.selectors,
 
                 contextSelector = options.contextSelector,
-                // 不直接填充, 而以data属性来设置
-                // 需求源于IPQAM的ip输入框, 因为是4个输入框, 而返回的ip是一个字符串, 所以不能直接填充, 
-                // 所以要先缓存在data-*中, 然后在回调中填充
-                // forData = {
-                //     ip: 'data-value'
-                // }
-                // node.setAttribute('data-ip', '192.168.xxx')
-                // 暂时不作实现 TODO
+
                 forData = options.forData,
 
-                // 选择多个的, 值应该是一个数组
-                // 也可能是这样的值, 处理要灵活
-                // sub_type:"11090007|11090008|11090009"
-                // case 'checkbox':
-                // 对于字符串和数组进行判断, 然后填充, 字符串要有分隔符设置
-                // shim = [{
-                //     checkboxnameAlsoKey: {
-                //      // 这里的值应该来来自obj, 而不是自己写
-                //      separator: ','
-                //     }
-                // }],
                 shim = options.shim;
 
             var valueShimType,
@@ -163,9 +146,6 @@
                                         }
                                         break;
 
-                                        // 选择多个的, 值应该是一个数组 
-                                        // 也可能是这样的值, 处理要灵活
-                                        // sub_type:"11090007|11090008|11090009"
                                     case 'checkbox':
                                         $.each(shim, function(_, shimVal) {
                                             valueShimType = $.type((shimVal[key] || {}).separator);

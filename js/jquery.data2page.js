@@ -11,7 +11,6 @@
     } else {
         factory(jQuery);
     }
-
 }(function($) {
 
     var defaultOptions = {

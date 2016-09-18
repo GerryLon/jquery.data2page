@@ -18,7 +18,8 @@ require(['jquery', 'jquery.data2page'], function($) {
         sports: 'a-b-c',
         age: '1',
         flower: "1,2,3,4",
-        desc: 'ipanel'
+        desc: 'ipanel',
+        addr: 'Guangdong Province'
 
     };
 
@@ -33,7 +34,10 @@ require(['jquery', 'jquery.data2page'], function($) {
                 flower: {
                     separator: ','
                 }
-            }]
+            }],
+            selectors: {
+                addr: '#addr'
+            }
         }).css('color', 'red').css('background-color', '#ccc').on('submit', function(e) {
             e.preventDefault();
 

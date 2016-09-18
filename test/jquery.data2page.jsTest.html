@@ -72,9 +72,13 @@
             <input type="file" accept="image/*" />
         </div>
         <div>
+            <span>家庭住址:</span><span id="addr"></span>
+        </div>
+        <div>
             <input type="submit" value="提交" /> &nbsp;&nbsp;
             <input type="reset" value="重置" />
         </div>
+
     </form>
     <hr><span>测试data2Page end</span>
     <hr>
@@ -91,7 +95,8 @@
         sports: 'a-b-c',
         age: '1',
         flower: "1,2,3,4",
-        desc: 'good boy'
+        desc: 'good boy',
+        addr: '广东省'
 
     };
 
@@ -106,7 +111,10 @@
                 flower: {
                     separator: ','
                 }
-            }]
+            }],
+            selectors: {
+                addr: '#addr'
+            }
         }).css('color', 'red').css('background-color', '#ccc').on('submit', function(e) {
             e.preventDefault();
 

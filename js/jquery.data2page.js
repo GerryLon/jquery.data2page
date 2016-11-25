@@ -95,6 +95,8 @@
 
                 $.each(obj, function(key, val) {
 
+                    // val = $.trim(val);
+
                     nodeList = $(form).find(selectors[key]);
 
                     len = nodeList.length;
@@ -119,6 +121,8 @@
                                     case 'password':
                                     case 'button':
                                     case 'hidden':
+                                    case 'email':
+                                    case 'tel':
                                         node.value = val;
                                         break;
 
@@ -165,7 +169,7 @@
                                             } else if (valueShimType === 'array') {
                                                 $.each(val, function(_, aVal) {
 
-                                                    if (node.value === aVal) {
+                                                    if (node.value === String(aVal)) {
                                                         node.checked = true;
                                                     }
                                                 });
